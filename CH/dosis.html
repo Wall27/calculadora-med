@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Dosis</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html">Inicio</a>
+<a href="hidratacion.html">Hidratación</a>
+<a href="imc.html">IMC</a>
+<a href="dosis.html" class="active">Dosis</a>
+<a href="glasgow.html">Glasgow</a>
+<a href="goteo.html">Goteo</a>
+
+</div>
+
+<div class="contenedor">
+
+<h2>Dosis por peso</h2>
+
+<input id="peso" type="number" placeholder="Peso kg"><br><br>
+
+<input id="dosis" type="number" placeholder="mg/kg"><br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let peso = parseFloat(document.getElementById("peso").value);
+let dosis = parseFloat(document.getElementById("dosis").value);
+
+let total = peso * dosis;
+
+document.getElementById("resultado").innerHTML =
+"Dosis total: "+total+" mg";
+
+}
+
+</script>
+
+</body>
+</html>

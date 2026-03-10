@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Escala de Glasgow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="menu">
+<a href="index.html">Inicio</a>
+<a href="hidratacion.html">Hidratación</a>
+<a href="imc.html">IMC</a>
+<a href="dosis.html">Dosis</a>
+<a href="glasgow.html" class="active">Glasgow</a>
+<a href="goteo.html">Goteo</a>
+</div>
+
+<div class="contenedor">
+
+<h2>Escala de Glasgow</h2>
+
+<h3>Apertura ocular</h3>
+<select id="ocular">
+<option value="4">Espontánea (4)</option>
+<option value="3">Al habla (3)</option>
+<option value="2">Al dolor (2)</option>
+<option value="1">Ninguna (1)</option>
+</select>
+
+<h3>Respuesta verbal</h3>
+<select id="verbal">
+<option value="5">Orientado (5)</option>
+<option value="4">Confuso (4)</option>
+<option value="3">Palabras inapropiadas (3)</option>
+<option value="2">Sonidos incomprensibles (2)</option>
+<option value="1">Ninguna (1)</option>
+</select>
+
+<h3>Respuesta motora</h3>
+<select id="motora">
+<option value="6">Obedece órdenes (6)</option>
+<option value="5">Localiza dolor (5)</option>
+<option value="4">Retira al dolor (4)</option>
+<option value="3">Flexión anormal (3)</option>
+<option value="2">Extensión (2)</option>
+<option value="1">Ninguna (1)</option>
+</select>
+
+<br><br>
+
+<button onclick="calcular()">Calcular Glasgow</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let ocular=parseInt(document.getElementById("ocular").value);
+let verbal=parseInt(document.getElementById("verbal").value);
+let motora=parseInt(document.getElementById("motora").value);
+
+let total=ocular+verbal+motora;
+
+let estado="";
+
+if(total>=13) estado="Leve";
+else if(total>=9) estado="Moderado";
+else estado="Severo";
+
+document.getElementById("resultado").innerHTML=
+"Glasgow: <b>"+total+"</b><br>Clasificación: "+estado;
+
+}
+
+</script>
+
+</body>
+</html>

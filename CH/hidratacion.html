@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Hidratación</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html">Inicio</a>
+<a href="hidratacion.html" class="active">Hidratación</a>
+<a href="imc.html">IMC</a>
+<a href="dosis.html">Dosis</a>
+<a href="glasgow.html">Glasgow</a>
+<a href="goteo.html">Goteo</a>
+</div>
+
+<div class="contenedor">
+
+<h2>Calculadora de Hidratación</h2>
+
+<input id="peso" type="number" placeholder="Peso en kg">
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let peso = parseFloat(document.getElementById("peso").value);
+
+let total;
+
+if(peso <= 10){
+total = peso * 100;
+}
+
+else if(peso <= 20){
+total = 1000 + (peso - 10) * 50;
+}
+
+else{
+total = 1500 + (peso - 20) * 20;
+}
+
+let hora = total / 24;
+
+document.getElementById("resultado").innerHTML =
+"Total diario: "+total+" ml <br> Por hora: "+hora.toFixed(1)+" ml/h";
+
+}
+
+</script>
+
+</body>
+</html>

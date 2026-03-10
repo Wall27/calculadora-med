@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Goteo IV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="menu">
+<a href="index.html">Inicio</a>
+<a href="hidratacion.html">Hidratación</a>
+<a href="imc.html">IMC</a>
+<a href="dosis.html">Dosis</a>
+<a href="glasgow.html">Glasgow</a>
+<a href="goteo.html" class="active">Goteo</a>
+</div>
+
+<div class="contenedor">
+
+<h2>Cálculo de Goteo IV</h2>
+
+<input id="volumen" type="number" placeholder="Volumen ml"><br><br>
+
+<input id="tiempo" type="number" placeholder="Tiempo horas"><br><br>
+
+<select id="factor">
+<option value="20">Macrogotero (20 gotas/ml)</option>
+<option value="60">Microgotero (60 gotas/ml)</option>
+</select>
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let volumen=parseFloat(document.getElementById("volumen").value);
+let tiempo=parseFloat(document.getElementById("tiempo").value);
+let factor=parseFloat(document.getElementById("factor").value);
+
+let minutos=tiempo*60;
+
+let gotas=(volumen*factor)/minutos;
+
+let mlhora=volumen/tiempo;
+
+document.getElementById("resultado").innerHTML=
+"Velocidad: "+mlhora.toFixed(1)+" ml/h<br>"+
+"Goteo: "+gotas.toFixed(1)+" gotas/min";
+
+}
+
+</script>
+
+</body>
+</html>
