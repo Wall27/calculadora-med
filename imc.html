@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>IMC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html">Inicio</a>
+<a href="hidratacion.html">Hidratación</a>
+<a href="imc.html" class="active">IMC</a>
+<a href="dosis.html" class="active">Dosis</a>
+<a href="glasgow.html">Glasgow</a>
+<a href="goteo.html">Goteo</a>
+
+</div>
+
+<div class="contenedor">
+
+<h2>Calculadora IMC</h2>
+
+<input id="peso" type="number" placeholder="Peso kg"><br><br>
+
+<input id="altura" type="number" placeholder="Altura m"><br><br>
+
+<button onclick="imc()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function imc(){
+
+let p = parseFloat(document.getElementById("peso").value);
+let a = parseFloat(document.getElementById("altura").value);
+
+let r = p / (a*a);
+
+document.getElementById("resultado").innerHTML =
+"IMC: "+r.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
